@@ -11,7 +11,7 @@ import com.hcl.domain.Employee;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
-		@Query(value = "SELECT * FROM employee e where e.ename like %?1%",nativeQuery=true)
+		
 		List<Employee> findByEname(String name);
 		
 		@Query(value = "SELECT * FROM employee e where e.city like %?1% AND e.dept like %?2%",nativeQuery=true)
@@ -22,10 +22,10 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 		
 		public List<Employee> findAllByOrderByEnoAsc();
 		
-		@Query(value = "SELECT * FROM employee e where e.eno = ?1",nativeQuery=true)
-		public Employee findById(int id);
 		
-		@Query(value = "SELECT * FROM employee e where e.eno = ?1",nativeQuery=true)
+		List<Employee> findByEno(int id);
+		
+		@Query(value = "SELECT * FROM employee  where eno = ?1",nativeQuery=true)
 		public List<Employee> findAllById(int id);
 		
 		@Query(value="UPDATE Employee set ename = :ename, email = :email, address = :address, phone = :phone, dept = :dept WHERE eno = :eno",nativeQuery = true)

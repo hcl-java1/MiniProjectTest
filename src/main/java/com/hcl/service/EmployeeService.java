@@ -18,8 +18,7 @@ public class EmployeeService {
 	public Employee saveEmployee(Employee employee)
 
 	{
-		System.out.println(employee);
-
+//		System.out.println(employee);
 		return repository.save(employee);
 	}
 
@@ -65,9 +64,9 @@ public class EmployeeService {
 	}
 
 	public List<Employee> getEmployeeByIdOrName(String search) {
+		
 		try {
-			int id = Integer.parseInt(search);
-			return (List<Employee>) repository.findAllById(id);
+			return (List<Employee>) repository.findByEno(Integer.parseInt(search));
 		} catch (Exception e) {
 			return repository.findByEname(search);
 		}

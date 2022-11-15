@@ -5,7 +5,7 @@ import javax.persistence.*;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name = "employee1")
+@Table(name = "employee")
 public class Employee {
 	@Id
 	@GeneratedValue()

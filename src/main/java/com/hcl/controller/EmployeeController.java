@@ -40,10 +40,10 @@ public class EmployeeController {
 //		return service.getEmployeeByName(name);
 //	}
 
-//	@DeleteMapping("/delete/{​​id}​​")
-//	public String deleteEmployee(@PathVariable int id) {
-//		return service.deleteEmployee(id);
-//	}
+	@DeleteMapping("/delete")
+	public String deleteEmployee(@RequestParam int id) {
+		return service.deleteEmployee(id);
+	}
 
 	@PutMapping("/update")
 	public Employee updateEmployee(@RequestBody Employee employee) {
@@ -62,7 +62,7 @@ public class EmployeeController {
 	}
 
 	@GetMapping("/search")
-	public List<Employee> employeesById(@RequestParam String search) {
-		return service.getEmployeeByIdOrName(search);
+	public List<Employee> employeesById(@RequestParam String keyword) {
+		return service.getEmployeeByIdOrName(keyword);
 	}
 }
